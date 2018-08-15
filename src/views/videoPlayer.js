@@ -1,17 +1,16 @@
 var VideoPlayerView = Backbone.View.extend({
   
   initialize: function() {
-    //this.render();
+    this.render();
   },
 
   render: function() {
-    this.$el.html(this.template());
-    //var newVideoEntry = new VideoPlayerView({model: this.collection.models[0]});
-    console.log('hi', this.collection.models[0])
-    console.log('hello',this.collection.models[0].attributes.id);
-
-    //this.$el.append(newVideoEntry.el);
+    this.$el = $('.player');
+    this.$el.html(this.template(this.model));
+    
+    console.log('vpv',this.model)
     return this;
+  
   },
 
   template: templateURL('src/templates/videoPlayer.html')

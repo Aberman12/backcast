@@ -4,9 +4,14 @@ var VideoListEntryView = Backbone.View.extend({
     this.render();
   },
   render: function() {
-    console.log('from video list entry',this.model.attributes.snippet.description);
     this.$el.html(this.template(this.model.attributes));
     return this;
+  },
+
+  events: {
+    'click .video-list-entry-title': function() {
+      var newVidP = new VideoPlayerView(this);
+    }
   },
 
   template: templateURL('src/templates/videoListEntry.html')
